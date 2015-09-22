@@ -1,0 +1,101 @@
+PODS:
+  - ALSystemUtilities (1.0):
+    - ALSystemUtilities/no-arc (= 1.0)
+  - ALSystemUtilities/no-arc (1.0)
+  - AMWaveTransition (0.5.7)
+  - ASProgressPopUpView (0.8)
+  - BEMSimpleLineGraph (3.3)
+  - Bolts (1.2.1):
+    - Bolts/AppLinks (= 1.2.1)
+    - Bolts/Tasks (= 1.2.1)
+  - Bolts/AppLinks (1.2.1):
+    - Bolts/Tasks
+  - Bolts/Tasks (1.2.1)
+  - Canvas (0.1.2)
+  - CNPGridMenu (0.2.1)
+  - CRGradientNavigationBar (0.3.2)
+  - CZPicker (0.2.0):
+    - pop
+  - EBCardCollectionViewLayout (0.2.0)
+  - FBSDKCoreKit (4.0.1):
+    - Bolts (~> 1.1)
+    - FBSDKCoreKit/arc (= 4.0.1)
+    - FBSDKCoreKit/no-arc (= 4.0.1)
+  - FBSDKCoreKit/arc (4.0.1):
+    - Bolts (~> 1.1)
+  - FBSDKCoreKit/no-arc (4.0.1):
+    - Bolts (~> 1.1)
+    - FBSDKCoreKit/arc
+  - FBSDKLoginKit (4.0.1):
+    - FBSDKCoreKit
+  - FBSDKShareKit (4.0.1):
+    - FBSDKCoreKit
+  - FlatUIKit (1.6.1)
+  - HSDatePickerViewController (1.0.1)
+  - JKBigInteger (0.0.1)
+  - KVNProgress (2.2.1)
+  - PNChart (0.8.3):
+    - UICountingLabel (~> 1.2.0)
+  - pop (1.0.7)
+  - RNFrostedSidebar (0.2.0)
+  - SCLAlertView-Objective-C (0.7.1)
+  - UIColor+BFPaperColors (1.7.1)
+  - UICountingLabel (1.2.0)
+
+DEPENDENCIES:
+  - ALSystemUtilities
+  - AMWaveTransition
+  - ASProgressPopUpView
+  - BEMSimpleLineGraph (~> 3.3)
+  - Canvas (~> 0.1.2)
+  - CNPGridMenu
+  - CRGradientNavigationBar
+  - CZPicker
+  - EBCardCollectionViewLayout (from `https://github.com/betzerra/EBCardCollectionViewLayout`)
+  - FBSDKCoreKit (~> 4.0.1)
+  - FBSDKLoginKit (~> 4.0.1)
+  - FBSDKShareKit (~> 4.0.1)
+  - FlatUIKit
+  - HSDatePickerViewController
+  - JKBigInteger
+  - KVNProgress
+  - PNChart
+  - RNFrostedSidebar (~> 0.2.0)
+  - SCLAlertView-Objective-C
+  - UIColor+BFPaperColors
+
+EXTERNAL SOURCES:
+  EBCardCollectionViewLayout:
+    :git: https://github.com/betzerra/EBCardCollectionViewLayout
+
+CHECKOUT OPTIONS:
+  EBCardCollectionViewLayout:
+    :commit: befe7fd2b31c2c2aa9d7eee02b2b786a82136620
+    :git: https://github.com/betzerra/EBCardCollectionViewLayout
+
+SPEC CHECKSUMS:
+  ALSystemUtilities: bc0e5459d80dee83eea615a88267f385d6f1aa2d
+  AMWaveTransition: 7137a5534a064fd8a955b687865a74d07729b2fe
+  ASProgressPopUpView: 945c19297da09a625db48a5a37cabd7756916b9b
+  BEMSimpleLineGraph: 7fc92cd65a5f91640f6624b11be96fe1f3d7f1cf
+  Bolts: 7686a5cb204d1ac54cee26f12d9b7622db3f80d1
+  Canvas: eb861e3b555d032648146c8ffda1a5dea40059ca
+  CNPGridMenu: 37c8b18c1329499a744063b4aacf85c77b193cf6
+  CRGradientNavigationBar: ee6fa0398e3d64af32a792b63336e094bb55402e
+  CZPicker: 53f8bc60a89f6fe7126d9f9780045e88a6e51ed3
+  EBCardCollectionViewLayout: 83acdccba21001480f50e7d4f5547cbcfb75e1e7
+  FBSDKCoreKit: a69aaad8712c1de6b370c70ddd9db02eb1dcb16c
+  FBSDKLoginKit: f0be76ce9e06d52f29051e38c7318d8b28030a05
+  FBSDKShareKit: 349d59da6a4d37e29d20030299089cfb0ac32a28
+  FlatUIKit: c602127a0c4a347e0632b2c5aef5c8c5f386f2cf
+  HSDatePickerViewController: b292f2a53b2644a68aa5e1343053d2f3554de64c
+  JKBigInteger: 7f3894ca331bf271a8e2ee0d5329707ca6eda6e0
+  KVNProgress: 7001d2d16a2755cee5599e8e485befe056f2197b
+  PNChart: 8d81e061ec4845915184755d8da84f385ca1cb28
+  pop: 628ffc631644601567ee8bfaaaea493ebd7d0923
+  RNFrostedSidebar: 9491d8627e5e99b92334d36def432c0faf7ebae4
+  SCLAlertView-Objective-C: 19edce0d6f9de55316d8b9fe49a9953173a457f7
+  UIColor+BFPaperColors: b1efa4320e2f56c4b14f73232faf967ba0e5b4a2
+  UICountingLabel: 1db4e7d023e1762171eb226d6dff47a7a84f27aa
+
+COCOAPODS: 0.37.1
