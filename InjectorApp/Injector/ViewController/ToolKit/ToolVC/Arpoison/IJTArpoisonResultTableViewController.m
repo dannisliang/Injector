@@ -25,6 +25,7 @@
 @property (nonatomic, strong) NSTimer *updateProgressViewTimer;
 @property (nonatomic) BOOL poisoning;
 @property (nonatomic, strong) ASProgressPopUpView *progressView;
+@property (nonatomic) BOOL arpProxy;
 
 @end
 
@@ -168,6 +169,25 @@
 
 - (void)startArpoisonThread {
     
+    //detecting arp proxy. If using arp proxy, arp sender mac address is not equal to ethernet source address
+    if(self.opCode == 0) { //reply
+        IJTArping *arping = [[IJTArping alloc] initWithInterface:@"en0"];
+        if(!arping.errorHappened) {
+            self.arpProxy = NO;
+            [arping arpingTargetIP:[self.arpoison getStartIpAddress]
+                           timeout:1000
+                            target:self
+                          selector:ARPING_CALLBACK_SEL
+                            object:nil];
+            [arping close];
+            
+            if(self.arpProxy) {
+                [self showWarningMessage:@"ARP proxy is detected. It may not working."];
+            }
+        }
+    }//end if
+    
+    
     NSMutableArray *sentInARow = [[NSMutableArray alloc] init];
     [self.arpoison storeArpTable];
     [self setParameters];
@@ -290,6 +310,15 @@ ARPOISON_CALLBACK_METHOD {
     [dict setValue:[IJTFormatString formatTimestamp:sentTimestamp decimalPoint:3] forKey:@"Timestamp"];
     
     [list addObject:dict];
+}
+
+ARPING_CALLBACK_METHOD {
+    if([macAddress isEqualToString:etherSourceAddress]) {
+        self.arpProxy = NO;
+    }
+    else {
+        self.arpProxy = YES;
+    }
 }
 
 - (void)updateTableView {

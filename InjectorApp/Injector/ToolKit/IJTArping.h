@@ -34,17 +34,19 @@
  * double RTT(ms)
  * NSString * target IP address
  * NSString * target mac address
+ * NSString * ethernet source address
  * id object
  */
-typedef void (*ArpingCallback)(id, SEL, struct timeval, double, NSString *, NSString *, id);
+typedef void (*ArpingCallback)(id, SEL, struct timeval, double, NSString *, NSString *, NSString *, id);
 
-#define ARPING_CALLBACK_SEL @selector(receiveTime:RTT:ipAddress:macAddress:object:)
+#define ARPING_CALLBACK_SEL @selector(receiveTime:RTT:ipAddress:macAddress:etherSourceAddress:object:)
 
 #define ARPING_CALLBACK_METHOD \
     - (void)receiveTime:(struct timeval)rt \
     RTT: (double)RTT \
     ipAddress:(NSString *)ipAddress \
     macAddress: (NSString *)macAddress \
+etherSourceAddress: (NSString *)etherSourceAddress \
     object: (id)object
 
 /**
