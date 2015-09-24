@@ -236,6 +236,11 @@
     }
 }
 
+- (void)dismissShowMessage {
+    if(self.minimalNotification != nil) {
+        [self.minimalNotification dismiss];
+    }
+}
 
 - (void)baseNotificationViewWithTitle: (NSString *)title
                              subTitle: (NSString *)subTitle

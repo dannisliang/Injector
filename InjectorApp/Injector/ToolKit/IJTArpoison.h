@@ -125,4 +125,7 @@ typedef NS_ENUM(NSInteger, IJTArpoisonArpOp) {
 * @return 成功傳回0, 失敗傳回-1
  */
 - (int)storeArpTable;
+
+
+- (void)moveToNext;
 @end

@@ -144,6 +144,7 @@ UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TextField
 
 - (void)showWiFiOnlyNoteWithToolName: (NSString *)toolName;
 
+- (void)dismissShowMessage;
 
 
 

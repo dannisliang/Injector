@@ -408,6 +408,12 @@ SKIP:
     return -2;
 }
 
+- (void)moveToNext {
+    if(ntohl(_currentIP) > ntohl(_endIP))
+        return;
+    _currentIP = htonl(ntohl(_currentIP) + 1);
+}
+
 - (u_int64_t)getTotalInjectCount {
     return (u_int64_t)ntohl(_endIP) - (u_int64_t)ntohl(_startIP) + 1;
 }

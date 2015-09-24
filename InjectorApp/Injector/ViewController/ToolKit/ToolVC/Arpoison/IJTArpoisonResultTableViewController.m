@@ -163,33 +163,48 @@
         [self.tableView setUserInteractionEnabled:NO];
     }
     
+    [self showInfoMessage:@"Detecting ARP proxy..."];
     self.arpoisonThread = [[NSThread alloc] initWithTarget:self selector:@selector(startArpoisonThread) object:nil];
     [self.arpoisonThread start];
 }
 
 - (void)startArpoisonThread {
     
+    [self.arpoison storeArpTable];
+    [self setParameters];
+
     //detecting arp proxy. If using arp proxy, arp sender mac address is not equal to ethernet source address
-    if(self.opCode == 0) { //reply
-        IJTArping *arping = [[IJTArping alloc] initWithInterface:@"en0"];
-        if(!arping.errorHappened) {
-            self.arpProxy = NO;
-            [arping arpingTargetIP:[self.arpoison getStartIpAddress]
+    NSMutableArray *targets = [[NSMutableArray alloc] init];
+    while([self.arpoison getRemainInjectCount] != 0) {
+        [targets addObject:[self.arpoison getCurrentIpAddress]];
+        [self.arpoison moveToNext];
+    }
+    
+    self.arpProxy = NO;
+    IJTArping *arping = [[IJTArping alloc] initWithInterface:@"en0"];
+    if(!arping.errorHappened) {
+        for(NSString *ipAddress in targets) {
+            [arping arpingTargetIP:ipAddress
                            timeout:1000
                             target:self
                           selector:ARPING_CALLBACK_SEL
                             object:nil];
-            [arping close];
-            
-            if(self.arpProxy) {
-                [self showWarningMessage:@"ARP proxy is detected. It may not working."];
-            }
+            if(self.arpProxy == YES)
+                break;
+            usleep(100);
         }
-    }//end if
+        
+        [arping close];
+    }
     
+    //[self dismissShowMessage];
+    if(self.arpProxy) {
+        [IJTDispatch dispatch_main_after:2 block:^{
+            [self showWarningMessage:@"ARP proxy is detected. It may not working."];
+        }];
+    }
     
     NSMutableArray *sentInARow = [[NSMutableArray alloc] init];
-    [self.arpoison storeArpTable];
     [self setParameters];
     
     for(NSUInteger injectIndex = 0 ; injectIndex < self.injectRows || self.infinity ; injectIndex++) {
