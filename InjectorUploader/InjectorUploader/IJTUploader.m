@@ -28,17 +28,19 @@ static NSArray *arrayOfFoldersInFolder(NSString *folder) {
     return error ? nil : arr;
 }
 
-+ (void) uploadfiles
++ (void) uploadfiles: (BOOL)froce
 {
-    id object = plistObject(@"SwitchViaWiFi", 2);
-    BOOL switchViaWiFi = YES;
-    if(object != nil)
-        switchViaWiFi = [object boolValue];
-    
-    if(switchViaWiFi &&
-       [Reachability reachabilityForLocalWiFi].currentReachabilityStatus == NotReachable) {
-        printf("wait to wifi\n");
-        return;
+    if(!froce) {
+        id object = plistObject(@"SwitchViaWiFi", 2);
+        BOOL switchViaWiFi = YES;
+        if(object != nil)
+            switchViaWiFi = [object boolValue];
+        
+        if(switchViaWiFi &&
+           [Reachability reachabilityForLocalWiFi].currentReachabilityStatus == NotReachable) {
+            printf("wait to wifi\n");
+            return;
+        }
     }
     
     NSArray *files = arrayOfFoldersInFolder(@"/var/root/Injector/PacketFlowTemp/");

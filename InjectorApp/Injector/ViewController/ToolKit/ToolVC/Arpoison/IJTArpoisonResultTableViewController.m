@@ -199,7 +199,7 @@
     
     //[self dismissShowMessage];
     if(self.arpProxy) {
-        [IJTDispatch dispatch_main_after:2 block:^{
+        [IJTDispatch dispatch_main_after:@"Detecting ARP proxy...".length*0.2+1 block:^{
             [self showWarningMessage:@"ARP proxy is detected. It may not working."];
         }];
     }

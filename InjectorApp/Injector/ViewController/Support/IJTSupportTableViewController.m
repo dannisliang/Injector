@@ -327,22 +327,26 @@
 }
 
 - (void)retrieveFacebookInfoThread {
-    [self getProfileImage:@"790905524285247"
-                     name:@"Tu Tu"
-                    email:@"jr89197@hotmail.com"
-                indexPath:[NSIndexPath indexPathForRow:0 inSection:2]];
-    [self getProfileImage:@"100001710330327"
-                     name:@"Yu Lun Wan"
-                    email:@"melody70161@gmail.com"
+    [self getProfileImage:@"941133985944655"
+                     name:@"江清泉"
+                    email:@"ccchiang@mail.mcu.edu.tw"
                 indexPath:[NSIndexPath indexPathForRow:0 inSection:3]];
-    [self getProfileImage:@"1116585951704210"
-                     name:@"Min-rou Wei "
-                    email:@"asdfff32@yahoo.com.tw"
+    [self getProfileImage:@"790905524285247"
+                     name:@"陳聲華"
+                    email:@"jr89197@hotmail.com"
+                indexPath:[NSIndexPath indexPathForRow:0 inSection:3]];
+    [self getProfileImage:@"100001710330327"
+                     name:@"萬伃倫"
+                    email:@"melody70161@gmail.com"
                 indexPath:[NSIndexPath indexPathForRow:0 inSection:4]];
+    [self getProfileImage:@"1116585951704210"
+                     name:@"魏旻柔"
+                    email:@"asdfff32@yahoo.com.tw"
+                indexPath:[NSIndexPath indexPathForRow:0 inSection:5]];
     [self getProfileImage:@"696499450435486"
                      name:@"鍾佳軒"
                     email:@"jeffa01160714@gmail.com"
-                indexPath:[NSIndexPath indexPathForRow:1 inSection:5]];
+                indexPath:[NSIndexPath indexPathForRow:1 inSection:6]];
 }
 
 - (void)getProfileImage: (NSString *)user_id name: (NSString *)name email: (NSString *)email indexPath: (NSIndexPath *)indexPath {
@@ -464,7 +468,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     // Return the number of sections.
-    return 6;
+    return 7;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -478,8 +482,10 @@
     else if(section == 3)
         return 1;
     else if(section == 4)
-        return 2;
+        return 1;
     else if(section == 5)
+        return 2;
+    else if(section == 6)
         return 3;
     return 0;
 }
@@ -587,7 +593,7 @@
             return cell;
         }
     }
-    else if(indexPath.section == 2 || indexPath.section == 3 || indexPath.section == 4) {
+    else if(indexPath.section == 2 || indexPath.section == 3 || indexPath.section == 4 || indexPath.section == 5) {
         IJTSupportMaintainerTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MaintainerCell" forIndexPath:indexPath];
         cell.nameLabel.textColor = IJTValueColor;
         
@@ -629,7 +635,7 @@
         [cell layoutIfNeeded];
         return cell;
     }
-    else if(indexPath.section == 5) {
+    else if(indexPath.section == 6) {
         IJTSupportFieldTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"InfoCell" forIndexPath:indexPath];
         
         if(indexPath.row == 0) {
@@ -669,12 +675,14 @@
     else if(section == 1)
         return @"System control";
     else if(section == 2)
-        return @"App Maintainer";
+        return @"Advising Professor";
     else if(section == 3)
-        return @"Website Maintainer";
+        return @"App Maintainer";
     else if(section == 4)
-        return @"Manager Interface Maintainer";
+        return @"Website Maintainer";
     else if(section == 5)
+        return @"Manager Interface Maintainer";
+    else if(section == 6)
         return @"App Information";
     return @"";
 }
@@ -684,7 +692,7 @@
     if(indexPath.section == 0 && indexPath.row == 2) {
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://nrl.cce.mcu.edu.tw/injector"]];
     }
-    else if(indexPath.section == 2 || indexPath.section == 3 || indexPath.section == 4) {
+    else if(indexPath.section == 2 || indexPath.section == 3 || indexPath.section == 4 || indexPath.section == 5) {
         NSInteger offset = 0;
         if(indexPath.section > 2) {
             NSInteger section = indexPath.section;
@@ -705,9 +713,9 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if(indexPath.section == 0)
         return 55.0f;
-    else if(indexPath.section == 2 || indexPath.section == 3 || indexPath.section == 4)
+    else if(indexPath.section == 2 || indexPath.section == 3 || indexPath.section == 4 || indexPath.section == 5)
         return 120.0f;
-    else if(indexPath.section == 5 || indexPath.section == 1)
+    else if(indexPath.section == 1 || indexPath.section == 6)
         return 44.0f;
     return 0.0;
 }

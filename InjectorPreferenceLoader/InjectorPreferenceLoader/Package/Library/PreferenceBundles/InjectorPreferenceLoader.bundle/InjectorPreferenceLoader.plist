@@ -30,7 +30,7 @@
 			<key>cell</key>
 			<string>PSSwitchCell</string>
 			<key>default</key>
-			<false/>
+			<true/>
 			<key>key</key>
 			<string>SwitchViaWiFi</string>
 			<key>label</key>
@@ -63,6 +63,14 @@
 			<true/>
 			<key>label</key>
 			<string>Contact us</string>
+		</dict>
+		<dict>
+			<key>action</key>
+			<string>advisingProfessor:</string>
+			<key>cell</key>
+			<string>PSButtonCell</string>
+			<key>label</key>
+			<string>Advising Professor</string>
 		</dict>
 		<dict>
 			<key>action</key>

@@ -245,7 +245,7 @@
 - (void)baseNotificationViewWithTitle: (NSString *)title
                              subTitle: (NSString *)subTitle
                                 style: (JFMinimalNotificationStyle)style {
-    NSTimeInterval dismissDelay = 2;
+    NSTimeInterval dismissDelay = 1 + subTitle.length*0.2;
     if(style == JFMinimalNotificationStyleSuccess)
         dismissDelay = 0.8;
     self.minimalNotification =

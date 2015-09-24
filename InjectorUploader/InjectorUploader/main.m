@@ -13,11 +13,14 @@ int main (int argc, const char * argv[])
 
     @autoreleasepool
     {
+        BOOL force = NO;
         //because when booting, network connection is not available immediately
         if(!(argc >= 2 && !strcmp(argv[1], "skip")))
             sleep(10);
+        if(argc >= 3 && !strcmp(argv[2], "force"))
+            force = YES;
         
-        [IJTUploader uploadfiles];
+        [IJTUploader uploadfiles: force];
     }
 	return 0;
 }

@@ -72,6 +72,7 @@
     self.searchController.searchBar.autocorrectionType = UITextAutocorrectionTypeNo;
     self.searchController.searchBar.autocapitalizationType = UITextAutocapitalizationTypeNone;
     self.tableView.tableHeaderView = self.searchController.searchBar;
+    self.searchController.dimsBackgroundDuringPresentation = NO;
     
     [[UIBarButtonItem appearanceWhenContainedIn: [UISearchBar class], nil]
      setTintColor:IJTFlowColor];
@@ -138,11 +139,6 @@
     }
     
     [self.tableView reloadData];
-}
-
-- (void)presentSearchController:(UISearchController *)searchController
-{
-    //[self.navigationController presentViewController:searchController animated:YES completion:nil];
 }
 
 - (void)willPresentSearchController:(UISearchController *)searchController {

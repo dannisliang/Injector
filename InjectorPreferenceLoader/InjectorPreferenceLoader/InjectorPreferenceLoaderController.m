@@ -91,6 +91,9 @@
     }
 }
 
+- (void)advisingProfessor:(PSSpecifier*)specifier {
+    [self sendTo:@"ccchiang@mail.mcu.edu.tw"];
+}
 
 - (void)appMaintainer:(PSSpecifier*)specifier {
     [self sendTo:@"jr89197@hotmail.com"];

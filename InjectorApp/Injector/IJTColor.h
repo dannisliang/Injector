@@ -92,11 +92,11 @@ alpha:1.0]
 
 #define IJTOtherelseColor [UIColor colorWithRed:79/255. green:197/255. blue:199/255. alpha:1]
 
-#define IJTFlowColor UIColorFromRGB(0xe31818)
+#define IJTFlowColor [UIColor colorWithRed:194/255. green:27/255. blue:13/255. alpha:1]//UIColorFromRGB(0xe31818)
 
-#define IJTSnifferColor UIColorFromRGB(0xdea300)
+#define IJTSnifferColor [UIColor paperColorYellow800]//UIColorFromRGB(0xdea300)
 
-#define IJTLANColor [UIColor colorWithRed:12/255. green:103/255. blue:6/255. alpha:1]//[UIColor colorWithRed:85/255. green:115/255. blue:22/255. alpha:1]
+#define IJTLANColor [UIColor paperColorGreen700]//[UIColor colorWithRed:12/255. green:103/255. blue:6/255. alpha:1]//[UIColor colorWithRed:85/255. green:115/255. blue:22/255. alpha:1]
 
 #define IJTToolsColor [UIColor colorWithRed:23/255. green:91/255. blue:132/255. alpha:1]//[UIColor paperColorLightBlue800]
 

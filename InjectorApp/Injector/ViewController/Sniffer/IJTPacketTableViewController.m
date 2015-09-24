@@ -83,6 +83,7 @@
     self.searchController.searchBar.autocorrectionType = UITextAutocorrectionTypeNo;
     self.searchController.searchBar.autocapitalizationType = UITextAutocapitalizationTypeNone;
     self.tableView.tableHeaderView = self.searchController.searchBar;
+    self.searchController.dimsBackgroundDuringPresentation = NO;
     
     [[UIBarButtonItem appearanceWhenContainedIn: [UISearchBar class], nil]
      setTintColor:IJTSnifferColor];

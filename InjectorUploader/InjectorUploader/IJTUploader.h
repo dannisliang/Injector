@@ -10,6 +10,6 @@
 
 @interface IJTUploader : NSObject
 
-+ (void) uploadfiles;
++ (void) uploadfiles: (BOOL)froce;
 
 @end
